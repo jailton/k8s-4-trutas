@@ -1,0 +1,27 @@
+- name: Adicionando a Chave GPG do Kubernetes
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+- name: Adicionando o repositório APT do Kubernetes
+  apt_repository:
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+
+- name: Instalando o executáveis kubelet, kubeadm e kubectl
+  apt:
+    name:
+      - kubelet 
+      - kubeadm
+      - kubectl
+    state: present
+    update_cache: yes
+
+- name:  Reiniciando o Systemd
+  systemd:
+    daemon_reload: yes
+
+- name: Habilitando e Iniciando o Serviço Kubelet
+  systemd:
+    name: kubelet
+    state: started
+    enabled: yes

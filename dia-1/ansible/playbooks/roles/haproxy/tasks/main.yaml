@@ -1,0 +1,31 @@
+  - name: Install packages to allow apt to use a repository over HTTPS
+    apt:
+      name:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - software-properties-common
+        - gnupg2
+      state: present
+      update_cache: yes
+
+  - name: Install HAProxy 
+    apt:
+      name: haproxy
+      state: present
+      update_cache: yes
+
+  - name: Set up the HAProxy configuration 
+    copy:
+      src: template/haproxy.cfg
+      dest: /etc/haproxy/haproxy.cfg
+
+  - name: Reload Systemd Daemon
+    systemd:
+      daemon_reload: yes
+
+  - name: Restart HAProxy 
+    systemd:
+      name: haproxy 
+      state: started
+      enabled: yes

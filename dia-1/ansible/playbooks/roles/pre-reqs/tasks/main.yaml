@@ -1,0 +1,43 @@
+- name: Desabilitando o SWAP
+  command: swapoff -a
+
+- name: Adicionando módulos obrigatórios
+  copy:
+    src: template/modules-k8s.conf
+    dest: /etc/modules-load.d/k8s.conf
+
+- name: Executando o comando modprobe
+  command: modprobe br_netfilter
+
+- name: Adicionado o parâmetro net.bridge.bridge-nf-call-iptables ao sysctl
+  sysctl:
+    name: net.bridge.bridge-nf-call-iptables
+    value: '1'
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+- name: Adicionado o parâmetro net.bridge.bridge-nf-call-ip6tables ao sysctl
+  sysctl:
+    name: net.bridge.bridge-nf-call-ip6tables
+    value: '1'
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+- name: Adicionado o parâmetro net.ipv6.conf.all.forwarding ao sysctl
+  sysctl:
+    name: net.ipv6.conf.all.forwarding
+    value: '1'
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+- name: Realizando o upgrade de todos os pacotes do Ubuntu
+  apt:
+    name: "*"
+    state: latest
+
+- name: Reboot
+  reboot:
+    test_command: uptime

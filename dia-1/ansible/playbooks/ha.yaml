@@ -1,0 +1,12 @@
+- name: Instalação em Alta Disponibilidade
+  
+  hosts: k8s
+  roles:
+    - haproxy
+
+- name: Instalação em Alta Disponibilidade
+  hosts: k8s
+  roles:
+    - pre-reqs
+    - docker
+    - kubernetes

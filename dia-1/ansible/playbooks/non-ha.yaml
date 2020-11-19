@@ -1,0 +1,6 @@
+- name: Instalação Sem Alta Disponibilidade
+  hosts: k8s
+  roles:
+    - pre-reqs
+    - docker
+    - kubernetes
