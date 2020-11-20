@@ -4,7 +4,7 @@
 
 - name: Adicionando o repositório APT do Kubernetes
   apt_repository:
-    repo: deb https://apt.kubernetes.io/kubernetes-xenial main
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
     state: present
 
 - name: Instalando o executáveis kubelet, kubeadm e kubectl
