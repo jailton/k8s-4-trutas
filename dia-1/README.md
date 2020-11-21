@@ -15,7 +15,6 @@
   - [Exercício 1](#exercício-1)
   - [Exercício 2](#exercício-2)
   - [Exercício 3](#exercício-3)
-  - [Exercício 4](#exercício-4)
 
 ## Referências
 
