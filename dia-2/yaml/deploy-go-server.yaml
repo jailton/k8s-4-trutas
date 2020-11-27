@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: go-server-truta
-        image: jailt.us/go-server:1.0
+        image: jailtus/go-server:1.0
         ports:
         - containerPort: 8080
 ---
