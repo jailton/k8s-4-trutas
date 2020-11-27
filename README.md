@@ -18,3 +18,4 @@
 ## Aulas
 
 - [Dia 1](https://github.com/jailton/k8s-4-trutas/tree/master/dia-1)
+- [Dia 2](https://github.com/jailton/k8s-4-trutas/tree/master/dia-2)
