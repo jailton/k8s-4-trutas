@@ -1,4 +1,4 @@
- - name: Pré-requisitos
+- name: Pré-requisitos
   hosts: all
   roles:
     - pre-reqs
@@ -8,9 +8,8 @@
   roles:
     - haproxy
 
-- name: Kubernetes - Instalação HA - Etcd Stacked
+- name: Kubernetes - Instalação HA - Stacked Etcd
   hosts: control-plane,nodes
   roles:
-    - pre-reqs
     - docker
     - kubernetes
