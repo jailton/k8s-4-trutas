@@ -71,3 +71,23 @@ kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
     --discovery-token-ca-cert-hash sha256:... \
     --control-plane --certificate-key ...
 ```
+
+##  Executar o ```kubeadm join``` nos nodes
+
+Via bastion, executar o ```kubeadm join...``` nos nodes utilizando o ansible.
+
+```ansible nodes -i hosts-ha -m shell -a "`kubeadm join..."
+
+### Realizar o deploy da aplicação go-server
+
+1. go server v1
+```
+https://raw.githubusercontent.com/jailton/k8s-4-trutas/main/dia-2/yaml/deploy-go-server-v1.yaml
+```
+
+OBS: Analisar o erro...
+
+2. go server v2
+```
+https://raw.githubusercontent.com/jailton/k8s-4-trutas/main/dia-2/yaml/deploy-go-server-v2.yaml
+```
