@@ -81,7 +81,7 @@ kubeadm config images pull
 2. Inicializar o master node / control plane
    
 ```
-kubeadm init –pod-network-cidr=10.244.0.0/16
+kubeadm init --pod-network-cidr=10.244.0.0/16
 ```
 
 OBS: Copiar o comando ```kubeadm join --discovery-token ...```
