@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-server-truta
+spec:
+  selector:
+    matchLabels:
+      run: go-server-truta
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: go-server-truta
+    spec:
+      containers:
+      - name: go-server-truta
+        image: jailtus/go-server:1.0
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-nodeport
+  labels:
+    run: go-server-truta
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    run: go-server-truta
