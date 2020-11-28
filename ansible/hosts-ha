@@ -1,5 +1,5 @@
 [haproxy]
-lb-truta-X1
+lb-truta-X0
 
 [control-plane]
 cp-truta-X1
