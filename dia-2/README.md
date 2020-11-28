@@ -83,7 +83,7 @@ Via bastion, executar o ```kubeadm join...``` nos nodes utilizando o ansible.
 1. go server v1
 
 ```
-https://raw.githubusercontent.com/jailton/k8s-4-trutas/main/dia-2/yaml/deploy-go-server-v1.yaml
+kubectl apply -f https://raw.githubusercontent.com/jailton/k8s-4-trutas/main/dia-2/yaml/deploy-go-server-v1.yaml
 ```
 
 OBS: Analisar o erro...
@@ -91,5 +91,5 @@ OBS: Analisar o erro...
 2. go server v2
 
 ```
-https://raw.githubusercontent.com/jailton/k8s-4-trutas/main/dia-2/yaml/deploy-go-server-v2.yaml
+kubectl apply -f https://raw.githubusercontent.com/jailton/k8s-4-trutas/main/dia-2/yaml/deploy-go-server-v2.yaml
 ```
